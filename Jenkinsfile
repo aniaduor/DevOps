@@ -1,4 +1,4 @@
-popeline {
+pipeline {
 agent any 
 stages {
 satge('hello') {
