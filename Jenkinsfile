@@ -26,7 +26,7 @@ pipeline {
          stage(' Build DockerImage') {
             steps {
                 
-                sh 'docker build -t saoudiroudaina/stationski:latest -f Dockerfile .'
+                sh 'docker build -t roudainasaoudi/stationski:latest -f Dockerfile .'
             }
         }
         stage('Push to Docker Hub') {
@@ -34,7 +34,7 @@ pipeline {
         script {
             withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                 sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                sh 'docker push saoudiroudaina/stationski:latest'
+                sh 'docker push roudainasaoudi/stationski:latest'
             }
         }
     }
@@ -101,5 +101,6 @@ pipeline {
     }
 
     
+
 
 
