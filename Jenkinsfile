@@ -26,7 +26,7 @@ pipeline {
          stage(' Build DockerImage') {
             steps {
                 
-                sh 'docker build -t leila1312/stationski:latest -f DockerFile .'
+                sh 'docker build -t saoudiroudaina/stationski:latest -f Dockerfile .'
             }
         }
         stage('Push to Docker Hub') {
@@ -34,7 +34,7 @@ pipeline {
         script {
             withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                 sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                sh 'docker push leila1312/stationski:latest'
+                sh 'docker push saoudiroudaina/stationski:latest'
             }
         }
     }
@@ -87,18 +87,19 @@ pipeline {
         emailext(
             subject: "Build Success: ${currentBuild.fullDisplayName}",
             body: "Le pipeline a réussi. Voir les détails du build ici: ${env.BUILD_URL}",
-            to: 'Leilabndhief@gmail.com'
+            to: 'minar.idouas6@gmail.com'
         )
     }
     failure {
         emailext(
             subject: "Build Failed: ${currentBuild.fullDisplayName}",
             body: "Le pipeline a échoué. Voir les détails du build ici: ${env.BUILD_URL}",
-            to: 'Leilabndhief@gmail.com'
+            to: 'minar.idouas6@gmail.com'
         )
     }
     }
     }
 
     
+
 
