@@ -5,7 +5,7 @@ pipeline {
         stage('Git') {
            steps {
         script {
-            git credentialsId: 'github-credentials', branch: 'BendhiefLeila', url: 'https://github.com/Medazizboughanmi31/GestionSkiDevops.git'
+            git credentialsId: 'github-credentials', branch: 'master', url: 'https://github.com/aniaduor/DevOps.git'
         }
     }
         }
@@ -101,3 +101,4 @@ pipeline {
     }
 
     
+
