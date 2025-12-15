@@ -12,14 +12,14 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                sh 'mvn clean install -DskipTests' '
+                sh 'mvn clean install -DskipTests' 
             }
         }
         
         stage('Run Tests') {
             steps {
                 // Run tests with Maven (JUnit and Mockito)
-                sh 'mvn test -DskipTests''
+                sh 'mvn test -DskipTests'
             }
         }
         
@@ -101,6 +101,7 @@ pipeline {
     }
 
     
+
 
 
 
